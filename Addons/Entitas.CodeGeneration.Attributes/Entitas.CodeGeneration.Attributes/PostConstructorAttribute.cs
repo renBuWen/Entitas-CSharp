@@ -1,8 +1,10 @@
 ﻿using System;
 
-namespace Entitas.CodeGeneration.Attributes {
+namespace Entitas.CodeGeneration.Attributes
+{
 
     [AttributeUsage(AttributeTargets.Method)]
-    public class PostConstructorAttribute : Attribute {
+    public class PostConstructorAttribute : Attribute
+    {
     }
 }

@@ -159,7 +159,7 @@ namespace Entitas.VisualDebugging.Unity.Editor
                 var entityLink = gameObject.GetComponent<EntityLink>();
                 if (entityLink != null)
                 {
-                    if (entityLink.entity != null)
+                    if (entityLink.Entity != null)
                     {
                         GUI.DrawTexture(rect, entityLinkHierarchyIcon);
                     }

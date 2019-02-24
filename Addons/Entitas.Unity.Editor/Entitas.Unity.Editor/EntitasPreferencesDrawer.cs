@@ -35,11 +35,11 @@ namespace Entitas.Unity.Editor
 
         public override void DrawHeader(Preferences preferences)
         {
-            drawToolbar();
+            DrawToolbar();
             drawHeader(preferences);
         }
 
-        void drawToolbar()
+        void DrawToolbar()
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar, GUILayout.ExpandWidth(true));
             {
@@ -67,7 +67,7 @@ namespace Entitas.Unity.Editor
             EditorGUILayout.EndHorizontal();
         }
 
-        void drawHeader(Preferences preferences)
+        private void drawHeader(Preferences preferences)
         {
             EditorLayout.DrawTexture(_headerTexture);
         }

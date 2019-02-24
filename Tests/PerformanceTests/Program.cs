@@ -1,11 +1,14 @@
 using System;
 using System.Threading;
 
-namespace PerformanceTests {
+namespace PerformanceTests
+{
 
-    class MainClass {
+    class MainClass
+    {
 
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
             Console.WriteLine("Running performance tests...");
             Thread.Sleep(1500);
 
@@ -82,9 +85,11 @@ namespace PerformanceTests {
         //CollectorActivate:                        1 ms
         //PropertiesCreate:                       251 ms
 
-        static void run<T>() where T : IPerformanceTest, new() {
+        static void run<T>() where T : IPerformanceTest, new()
+        {
             Thread.Sleep(100);
-            if (typeof(T) == typeof(EmptyTest)) {
+            if (typeof(T) == typeof(EmptyTest))
+            {
                 Console.WriteLine(string.Empty);
                 return;
             }

@@ -11,25 +11,25 @@ namespace Entitas.VisualDebugging.Unity.Editor {
         public override void OnInspectorGUI() {
             var link = (EntityLink)target;
 
-            if (link.entity != null) {
+            if (link.Entity != null) {
                 if (GUILayout.Button("Unlink")) {
                     link.Unlink();
                 }
             }
 
-            if (link.entity != null) {
+            if (link.Entity != null) {
                 EditorGUILayout.Space();
 
-                EditorGUILayout.LabelField(link.entity.ToString());
+                EditorGUILayout.LabelField(link.Entity.ToString());
 
                 if (GUILayout.Button("Show entity")) {
                     Selection.activeGameObject = FindObjectsOfType<EntityBehaviour>()
-                        .Single(e => e.entity == link.entity).gameObject;
+                        .Single(e => e.entity == link.Entity).gameObject;
                 }
 
                 EditorGUILayout.Space();
 
-                EntityDrawer.DrawEntity(link.entity);
+                EntityDrawer.DrawEntity(link.Entity);
             } else {
                 EditorGUILayout.LabelField("Not linked to an entity");
             }

@@ -1,9 +1,11 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Entitas.Migration {
+namespace Entitas.Migration
+{
 
-    public class M0180 : IMigration {
+    public class M0180 : IMigration
+    {
 
         public string version { get { return "0.18.0"; } }
 
@@ -20,12 +22,14 @@ namespace Entitas.Migration {
         const string EVENT_TYPE_PATTERN_END = EVENT_TYPE_PATTERN + METHOD_END_PATTERN;
         const string EVENT_TYPE_REPLACEMENT = "public GroupEventType eventType { get { ";
 
-        public MigrationFile[] Migrate(string path) {
+        public MigrationFile[] Migrate(string path)
+        {
             var files = MigrationUtils.GetFiles(path)
                 .Where(file => Regex.IsMatch(file.fileContent, TRIGGER_PATTERN) || Regex.IsMatch(file.fileContent, EVENT_TYPE_PATTERN))
                 .ToArray();
 
-            for (int i = 0; i < files.Length; i++) {
+            for (int i = 0; i < files.Length; i++)
+            {
                 var file = files[i];
                 file.fileContent = Regex.Replace(file.fileContent, TRIGGER_END_PATTERN, match => match.Value + " }", RegexOptions.Multiline);
                 file.fileContent = Regex.Replace(file.fileContent, EVENT_TYPE_PATTERN_END, match => match.Value + " }", RegexOptions.Multiline);

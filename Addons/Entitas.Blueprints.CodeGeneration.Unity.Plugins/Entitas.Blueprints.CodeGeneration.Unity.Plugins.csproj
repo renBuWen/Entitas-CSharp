@@ -39,16 +39,11 @@
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\Libraries\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\Libraries\UnityEngine.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entitas.Blueprints.CodeGeneration.Unity.Plugins\BlueprintDataProvider.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entitas.Blueprints.CodeGeneration.Unity.Plugins\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Entitas.Blueprints.CodeGeneration.Plugins\Entitas.Blueprints.CodeGeneration.Plugins.csproj">
       <Project>{09DBBDC0-EEA5-42C5-B9A9-E83C0C6FCD8E}</Project>
