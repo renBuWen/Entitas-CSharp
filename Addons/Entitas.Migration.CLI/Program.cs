@@ -2,57 +2,78 @@ using System;
 using System.Linq;
 using DesperateDevs.Utils;
 
-namespace Entitas.Migration.CLI {
+namespace Entitas.Migration.CLI
+{
 
-    class Program {
+    class Program
+    {
 
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
             var allMigrations = AppDomain.CurrentDomain
                                          .GetInstancesOf<IMigration>()
                                          .OrderBy(instance => instance.GetType().FullName)
                                          .ToArray();
 
-            if (args == null) {
+            if (args == null)
+            {
                 printUsage(allMigrations);
-            } else if (args.Length == 1) {
+            }
+            else if (args.Length == 1)
+            {
                 var arg = args[0];
-                if (arg == "-l") {
+                if (arg == "-l")
+                {
                     printAllMigrations(allMigrations);
-                } else {
+                }
+                else
+                {
                     printUsage(allMigrations);
                 }
-            } else if (args.Length == 2) {
+            }
+            else if (args.Length == 2)
+            {
                 var version = args[0];
                 var path = args[1];
                 var migrations = allMigrations.Where(m => m.version == version).ToArray();
-                if (migrations.Length == 0) {
+                if (migrations.Length == 0)
+                {
                     printVersionNotFound(version, allMigrations);
-                } else {
-                    foreach (var m in migrations) {
+                }
+                else
+                {
+                    foreach (var m in migrations)
+                    {
                         MigrationUtils.WriteFiles(m.Migrate(path));
                     }
                 }
-            } else {
+            }
+            else
+            {
                 printUsage(allMigrations);
             }
         }
 
-        static void printUsage(IMigration[] migrations) {
+        static void printUsage(IMigration[] migrations)
+        {
             Console.WriteLine(@"usage:
 [-l]             - print all available versions
 [version] [path] - apply migration of version [version] to source files located at [path]"
             );
         }
 
-        static void printAllMigrations(IMigration[] migrations) {
-            foreach (var m in migrations) {
+        static void printAllMigrations(IMigration[] migrations)
+        {
+            foreach (var m in migrations)
+            {
                 Console.WriteLine("========================================");
                 Console.WriteLine(m.version + "\n  - " + m.description + "\n  - Use on folder, " + m.workingDirectory);
             }
             Console.WriteLine("========================================");
         }
 
-        static void printVersionNotFound(string version, IMigration[] migrations) {
+        static void printVersionNotFound(string version, IMigration[] migrations)
+        {
             Console.WriteLine("Could not find a migration for version '" + version + "'");
             printAllMigrations(migrations);
         }

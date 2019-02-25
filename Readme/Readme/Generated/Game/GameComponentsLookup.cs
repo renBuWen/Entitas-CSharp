@@ -6,7 +6,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public static class GameComponentsLookup {
+public static class GameComponentsLookup
+{
 
     public const int Animating = 0;
     public const int Asset = 1;

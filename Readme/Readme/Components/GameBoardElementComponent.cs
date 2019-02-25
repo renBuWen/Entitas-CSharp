@@ -1,5 +1,6 @@
 ﻿using Entitas;
 
 [Game]
-public sealed class GameBoardElementComponent : IComponent {
+public sealed class GameBoardElementComponent : IComponent
+{
 }
